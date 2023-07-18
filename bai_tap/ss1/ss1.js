@@ -32,5 +32,9 @@ let addedCourses = courses.filter((course) => course.rating < 4).map((courseResu
     + courseResult.title + '-' + courseResult.rating);
 console.log(addedCourses);
 
-let merge = [...courses,...addedCourses];
-console.log(merge);
+
+
+
+
+let merge = () => [...courses,...addedCourses];
+console.log(merge());
