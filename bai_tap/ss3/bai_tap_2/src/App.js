@@ -12,16 +12,16 @@ class App extends React.Component {
   }
   handleChange = (event) => {
     
-    this.setState({
+    this.setState(() => {{
       item: event.target.value
-    });
+    }});
   }
 
   handleAddItem = () => {
     if (this.state.item !== "") {
        this.state.list.push(this.state.item)
-      
-      this.setState(this.state.list)
+    
+      this.setState(()=>{this.state.list})
     }
   }
   render() {
@@ -29,9 +29,9 @@ class App extends React.Component {
       <>
         <input type='text' onChange={this.handleChange} />
         <button onClick={this.handleAddItem}>Add</button>
-        <ul>
-          {this.state.list.map((l =>
-            <li>{l}</li>
+        <ul >
+          {this.state.list.map((listState,index =>
+            <li key={index}>{listState}</li>
           ))}
         </ul>
       </>)
