@@ -30,8 +30,8 @@ class App extends React.Component {
         <input type='text' onChange={this.handleChange} />
         <button onClick={this.handleAddItem}>Add</button>
         <ul >
-          {this.state.list.map((listState,index =>
-            <li key={index}>{listState}</li>
+          {this.state.list.map((item,index =>
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </>)
