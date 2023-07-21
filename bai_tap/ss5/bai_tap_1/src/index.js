@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import FormCreate from './components/FormCreate';
-import { ListContract } from './App';
+import { ListContract } from './components/ListConTract';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FormCreate />
-    <ListContract />
+    <BrowserRouter>
+    <Routes>
+         <Route path='/list' element={<ListContract />} />
+         <Route path='/create' element={<FormCreate />} />
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
