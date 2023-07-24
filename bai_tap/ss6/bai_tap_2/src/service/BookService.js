@@ -4,10 +4,10 @@
        return (await axios.get('http://localhost:8080/books')).data
      }
      export async function getBook(id){
-       (await axios.get('http://localhost:8080/books/'+id))
+       return (await axios.get('http://localhost:8080/books/'+id)).data
      }
 
-     
+      
      export async function createBook(book){
       await axios.post('http://localhost:8080/books',book);
      }
@@ -17,6 +17,6 @@
      }
 
      export async function editBook(book){
-      await axios.post('http://localhost:8080/books',book);
+      await axios.put('http://localhost:8080/books/'+book.id,book);
      }
 

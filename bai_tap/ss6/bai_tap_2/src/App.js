@@ -1,10 +1,9 @@
 
-import { editBook, getBook, getListBook } from "./service/BookService";
+import { getBook, getListBook } from "./service/BookService";
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { deleteBook } from "./service/BookService";
-import { useNavigate } from "react-router";
-import { EditBook } from "./components/EditBook";
+
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -35,11 +34,12 @@ function App() {
               <td>{item.title}</td>
               <td>{item.quantity}</td>
               <td>
-             <Link to={`/book/edit`}>  <button onClick={()=>{ getBook(item.id)}}>Edit</button></Link> 
-                <button onClick={async ()=>{deleteBook(item.id)
-                const check=await getListBook()
-                 setBooks(check)
-              }} type="submit">Delete</button></td>
+                <Link to={`/book/edit/` + item.id}>  <button>Edit</button></Link>
+                <button onClick={async () => {
+                  deleteBook(item.id)
+                  const check = await getListBook()
+                  setBooks(check)
+                }} type="submit">Delete</button></td>
             </tr>
           )}
         </tbody>
