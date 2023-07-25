@@ -3,12 +3,12 @@ import { getBook, getListBook } from "./service/BookService";
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { deleteBook } from "./service/BookService";
-import {useNavigate} from "react-router"
+import { useNavigate } from "react-router"
 
 
 function App() {
   const [books, setBooks] = useState([]);
- const natigate=useNavigate();
+  const natigate = useNavigate();
   useEffect(() => {
     (async () => {
       setBooks(await getListBook())
@@ -37,10 +37,8 @@ function App() {
               <td>
                 <Link to={`/book/edit/` + item.id}>  <button>Edit</button></Link>
                 <button onClick={async () => {
-                  deleteBook(item.id)
-                  const check = await getListBook()
-                  setBooks(check)
-                  natigate("/")
+                  window.confirm("do u want delete") ? await deleteBook(item.id).then(async () => await getListBook())
+                    .then(setBooks(check)).then(natigate("/")).catch(window.alert("error")) : ""
                 }} type="submit">Delete</button></td>
             </tr>
           )}

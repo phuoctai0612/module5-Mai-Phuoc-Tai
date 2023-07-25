@@ -6,8 +6,9 @@ export function GetListUser() {
     const [user, setUser] = useState([]);
     const [flag, setFlag] = useState(false);
      const navigate=useNavigate();
+     const setListUser=()=>(async () =>{setUser( await getList())})();
     useEffect(() => {
-        (async () =>{setUser( await getList())})();
+        setListUser();
     }, [])
 
 
@@ -27,13 +28,13 @@ export function GetListUser() {
                 </thead>
                 <tbody>
                     {user.map((item,index)=>
-                        <tr key={`u_${user.id}`}>
+                        <tr key={`u_`+item.id}>
+                            
                             <td>{+index+1}</td>
                             <td>{item.name}</td>
                             <td>{item.email}</td>
                             <td><button onClick={async()=>{
-                               await deleteUser(item.id).then(setUser(await getList())).then(navigate('/'))
-                            
+                           window.confirm("do u want delete?")?await deleteUser(item.id).then(setListUser()):window.alert("okeee")    
                             }}>Delete</button></td>
                         </tr>
                     )}

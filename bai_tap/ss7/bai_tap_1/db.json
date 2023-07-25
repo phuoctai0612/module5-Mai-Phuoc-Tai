@@ -1,18 +1,6 @@
 {
   "users": [
     {
-      "id": 3,
-      "name": "A",
-      "email": "A",
-      "website": "A"
-    },
-    {
-      "id": 2,
-      "name": "A",
-      "email": "A",
-      "website": "A"
-    },
-    {
       "id": 1,
       "name": "A",
       "email": "A",
