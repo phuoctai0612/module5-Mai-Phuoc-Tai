@@ -8,19 +8,21 @@ function App() {
     const box = event.target.value;
     setTodo(() => box)
   }
-  const handleAddItem =async () => {
-   const obj = { name: todo }
-      createTodo(obj);
+  const handleAddItem = async () => {
+    const obj = { name: todo }
+    createTodo(obj);
 
   }
-
-  useEffect(() => {
+  const getToDo = () => {
     (async () => {
       const a = await getListTodo();
       setTodo1(a);
     }
     )();
-  },[])
+  }
+  useEffect(() => {
+    getToDo();
+  }, [])
   return (
     <div >
       <h1 >Todo List</h1>

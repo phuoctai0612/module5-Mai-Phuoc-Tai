@@ -1,4 +1,4 @@
-function Create(){
+function CreateContract(){
   
           return (
             <div>
@@ -90,4 +90,4 @@ function Create(){
             </div>
           );
         }
-export default Create;
+export default CreateContract;

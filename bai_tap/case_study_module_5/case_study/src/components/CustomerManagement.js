@@ -1,5 +1,12 @@
+import { getListCustomer } from "../service/customerService";
+import {useState,useEffect} from "react"
+   function CustomerManagement() {
 
-   function EmployeeManagement() {
+     const [customers,setCustomer]=useState([])
+     useEffect((async()=>{
+            setCustomer(await getListCustomer())
+     })())
+
       return (
         <div>
           <meta charSet="utf-8" />
@@ -34,13 +41,17 @@
                         </span>
                       </th>
                       <th>Name</th>
-                      <th>Email</th>
-                      <th>Address</th>
+                      <th>Day Of Birth</th>
+                      <th>Sex</th>
+                      <th>Card Id</th>
                       <th>Phone</th>
-                      <th>Actions</th>
+                      <th>Email</th>
+                      <th>Type Customer</th>
+                      <th>Address</th>
                     </tr>
                   </thead>
                   <tbody>
+                    {}
                     <tr>
                       <td>
                         <span className="custom-checkbox">
@@ -232,4 +243,4 @@
         </div>
       );
     }
-    export default EmployeeManagement;
+    export default CustomerManagement;
