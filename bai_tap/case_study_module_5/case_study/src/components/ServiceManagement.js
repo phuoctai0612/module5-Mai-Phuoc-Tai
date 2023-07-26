@@ -1,14 +1,14 @@
-import { getListCustomer } from "../service/customerService";
+import { getListService } from "../service/service"
 import {useState,useEffect} from "react"
-   function CustomerManagement() {
-     const [customers,setCustomer]=useState([])
+   function ServiceManagement() {
+     const [service,setService]=useState([])
      const getToDo =()=>{
       (async()=>{
-            setCustomer(await getListCustomer())
+        setService(await getListService())
      })()
      }
      useEffect(getToDo,[])
-console.log(customers);
+console.log(service);
       return (
         <div>
           <meta charSet="utf-8" />
@@ -42,18 +42,20 @@ console.log(customers);
                           <label htmlFor="selectAll" />
                         </span>
                       </th>
-                      <th>Name</th>
-                      <th>Day Of Birth</th>
-                      <th>Sex</th>
-                      <th>Card Id</th>
-                      <th>Phone</th>
-                      <th>Email</th>
-                      <th>Type Customer</th>
-                      <th>Address</th>
+                      <th>Service</th>
+                      <th>Usable Area</th>
+                      <th>Costs</th>
+                      <th>Max People</th>
+                      <th>Type</th>    
+                      <th>Standard</th>
+                      <th>Description</th>
+                      <th>Pool</th>
+                      <th>Floor</th>
+                      <th>Free</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {customers.map((item,index)=>
+                    {service.map((item,index)=>
                    
                     <tr key={index}>
                       <td>
@@ -62,14 +64,16 @@ console.log(customers);
                           <label htmlFor="checkbox1" />
                         </span>
                       </td>
-                      <td>{item.name}</td>
-                      <td>{item.date_of_birth}</td>
-                      <td>{item.gender}</td>
-                      <td>{item.id_card}</td>
-                      <td>{item.phone_number}</td>
-                      <td>{item.email}</td>
-                      <td>{item.customer_type}</td>
-                      <td>{item.address}</td>
+                      <td>{item.service}</td>
+                      <td>{item.usable_area}</td>
+                      <td>{item.costs}</td>
+                      <td>{item.max_people}</td>
+                      <td>{item.type}</td>
+                      <td>{item.standard}</td>
+                      <td>{item.description}</td>
+                      <td>{item.pool}</td>
+                      <td>{item.floor}</td>
+                      <td>{item.free}</td>
                     
                       <td>
                         <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
@@ -189,4 +193,4 @@ console.log(customers);
         </div>
       );
     }
-    export default CustomerManagement;
+    export default ServiceManagement;

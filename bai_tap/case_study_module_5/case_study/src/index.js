@@ -6,12 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Contract from './components/Contract';
+import CustomerManagement from './components/CustomerManagement';
+import ServiceManagement from './components/ServiceManagement';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
+    {/* <Header />
     <App />
-    <Footer />
+    <Footer /> */}
+    <ServiceManagement />
+
   </React.StrictMode>
 );
 
