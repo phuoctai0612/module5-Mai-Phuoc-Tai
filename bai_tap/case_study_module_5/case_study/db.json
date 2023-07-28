@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "id":1,
+      "id": 1,
       "service": "BEACH HOUSE",
       "usable_area": "50m²",
       "costs": "1000000",
@@ -13,8 +13,8 @@
       "floor": "2",
       "free": "No"
     },
-    {      "id":2,
-
+    {
+      "id": 2,
       "service": "GARDEN HOUSE",
       "usable_area": "40m²",
       "costs": "800000",
@@ -26,8 +26,8 @@
       "floor": "3",
       "free": "No"
     },
-    {      "id":3,
-
+    {
+      "id": 3,
       "service": "LAKEFRONT HOUSE",
       "usable_area": "60m²",
       "costs": "5000000",
@@ -39,8 +39,8 @@
       "floor": "3",
       "free": "No"
     },
-    {      "id":4,
-
+    {
+      "id": 4,
       "service": "PRIVATE POOL HOUSE",
       "usable_area": "70m²",
       "costs": "700000",
@@ -52,8 +52,8 @@
       "floor": "4",
       "free": "No"
     },
-    {      "id":5,
-
+    {
+      "id": 5,
       "service": "MOUTAIN VIEW HOUSE",
       "usable_area": "20m²",
       "costs": "200000",
@@ -65,8 +65,8 @@
       "floor": "5",
       "free": "No"
     },
-    {      "id":6,
-
+    {
+      "id": 6,
       "service": "LAKEFRONT HOUSE",
       "usable_area": "25m²",
       "costs": "250000",
@@ -78,8 +78,8 @@
       "floor": "6",
       "free": "No"
     },
-    {      "id":7,
-
+    {
+      "id": 7,
       "service": "DELUXE ROOM",
       "usable_area": "30m²",
       "costs": "300000",
@@ -91,8 +91,8 @@
       "floor": "",
       "free": "Breakfast"
     },
-    {      "id":8,
-
+    {
+      "id": 8,
       "service": "OCEAN VIEW ROOM",
       "usable_area": "35m²",
       "costs": "350000",
@@ -104,8 +104,8 @@
       "floor": "",
       "free": "Buffer"
     },
-    {      "id":9,
-
+    {
+      "id": 9,
       "service": "EXECUTIVE SUITE",
       "usable_area": "40m²",
       "costs": "400000",
@@ -117,8 +117,8 @@
       "floor": "",
       "free": ""
     },
-    {      "id":10,
-
+    {
+      "id": 10,
       "service": "FAMILY ROOM",
       "usable_area": "45m²",
       "costs": "450000",
@@ -130,8 +130,8 @@
       "floor": "",
       "free": "Breakfast"
     },
-    {      "id":11,
-
+    {
+      "id": 11,
       "service": "HONEYMOON SUITE",
       "usable_area": "45m²",
       "costs": "450000",
@@ -143,8 +143,8 @@
       "floor": "",
       "free": ""
     },
-    {      "id":12,
-
+    {
+      "id": 12,
       "service": "FAMILY ROOM",
       "usable_area": "30m²",
       "costs": "450000",
@@ -156,8 +156,8 @@
       "floor": "",
       "free": "Dinner"
     },
-    {      "id":13,
-
+    {
+      "id": 13,
       "service": "GADERN VILLA",
       "usable_area": "90m²",
       "costs": "450000",
@@ -169,8 +169,8 @@
       "floor": "4",
       "free": ""
     },
-    {      "id":14,
-
+    {
+      "id": 14,
       "service": "OCEANFRONT VILLA",
       "usable_area": "80m²",
       "costs": "45000000",
@@ -182,8 +182,8 @@
       "floor": "5",
       "free": ""
     },
-    {      "id":15,
-
+    {
+      "id": 15,
       "service": "HILLTOP VILLA",
       "usable_area": "100m²",
       "costs": "450000",
@@ -195,8 +195,8 @@
       "floor": "3",
       "free": ""
     },
-    {      "id":16,
-
+    {
+      "id": 16,
       "service": "GRANT VILLA",
       "usable_area": "95m²",
       "costs": "50000000",
@@ -208,8 +208,8 @@
       "floor": "4",
       "free": ""
     },
-    {      "id":17,
-
+    {
+      "id": 17,
       "service": "LUXURY VILLA",
       "usable_area": "70m²",
       "costs": "4500000",
@@ -221,8 +221,8 @@
       "floor": "4",
       "free": ""
     },
-    {      "id":18,
-
+    {
+      "id": 18,
       "service": "GRANT VILLA",
       "usable_area": "85m²",
       "costs": "4500000",
@@ -237,114 +237,223 @@
   ],
   "customers": [
     {
-      "id": "1",
-      "name": "Nguyen Van A",
-      "date_of_birth": "01/01/1990",
+      "id": 1,
+      "name": "Mai Phước Tài",
+      "dayOfBirth": "01/01/1990",
       "gender": "Male",
-      "id_card": "123456789",
-      "phone_number": "0123456789",
+      "idCard": "123456789",
+      "phoneNumber": "0123456789",
       "email": "nguyenvana@gmail.com",
-      "customer_type": "Regular",
-      "address": "No.1 Street A, District 1, Ho Chi Minh City"
+      "address": "No.1 Street A, District 1, Ho Chi Minh City",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      }
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Tran Thi B",
-      "date_of_birth": "02/02/1995",
+      "dayOfBirth": "02/02/1995",
       "gender": "Female",
-      "id_card": "987654321",
-      "phone_number": "0987654321",
+      "idCard": "987654321",
+      "phoneNumber": "0987654321",
       "email": "tranthib@yahoo.com",
-      "customer_type": "Regular",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.2 Street B, District 2, Ho Chi Minh City"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Le Minh C",
-      "date_of_birth": "03/03/1985",
+      "dayOfBirth": "03/03/1985",
       "gender": "Male",
-      "id_card": "456789123",
-      "phone_number": "0567891234",
+      "idCard": "456789123",
+      "phoneNumber": "0567891234",
       "email": "leminhc@hotmail.com",
-      "customer_type": "VIP",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.3 Street C, District 3, Ho Chi Minh City"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Pham Thi D",
-      "date_of_birth": "04/04/1992",
+      "dayOfBirth": "04/04/1992",
       "gender": "Female",
-      "id_card": "369852147",
-      "phone_number": "0369852147",
+      "idCard": "369852147",
+      "phoneNumber": "0369852147",
       "email": "phamthid@gmail.com",
-      "customer_type": "Regular",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.4 Street D, District 4, Ho Chi Minh City"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Hoang Van E",
-      "date_of_birth": "05/05/1988",
+      "dayOfBirth": "05/05/1988",
       "gender": "Male",
-      "id_card": "258147369",
-      "phone_number": "0258147369",
+      "idCard": "258147369",
+      "phoneNumber": "0258147369",
       "email": "hoangvane@yahoo.com",
-      "customer_type": "VIP",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.5 Street E, District 5, Ho Chi Minh City"
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Nguyen Thi F",
-      "date_of_birth": "06/06/1991",
+      "dayOfBirth": "06/06/1991",
       "gender": "Female",
-      "id_card": "147258369",
-      "phone_number": "0147258369",
+      "idCard": "147258369",
+      "phoneNumber": "0147258369",
       "email": "nguyenthif@hotmail.com",
-      "customer_type": "Regular",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.6 Street F, District 6, Ho Chi Minh City"
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Tran Van G",
-      "date_of_birth": "07/07/1987",
+      "dayOfBirth": "07/07/1987",
       "gender": "Male",
-      "id_card": "963852741",
-      "phone_number": "0963852741",
+      "idCard": "963852741",
+      "phoneNumber": "0963852741",
       "email": "tranvang@gmail.com",
-      "customer_type": "VIP",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.7 Street G, District 7, Ho Chi Minh City"
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Le Thi H",
-      "date_of_birth": "08/08/1994",
+      "dayOfBirth": "08/08/1994",
       "gender": "Female",
-      "id_card": "741852963",
-      "phone_number": "0741852963",
+      "idCard": "741852963",
+      "phoneNumber": "0741852963",
       "email": "lethih@yahoo.com",
-      "customer_type": "Regular",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.8 Street H, District 8, Ho Chi Minh City"
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Phan Van I",
-      "date_of_birth": "09/09/1986",
+      "dayOfBirth": "09/09/1986",
       "gender": "Male",
-      "id_card": "852741963",
-      "phone_number": "0852741963",
+      "idCard": "852741963",
+      "phoneNumber": "0852741963",
       "email": "phanvani@hotmail.com",
-      "customer_type": "Regular",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.9 Street I, District 9, Ho Chi Minh City"
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Tran Thi K",
-      "date_of_birth": "10/10/1993",
+      "dayOfBirth": "10/10/1993",
       "gender": "Female",
-      "id_card": "654321987",
-      "phone_number": "0654321987",
+      "idCard": "654321987",
+      "phoneNumber": "0654321987",
       "email": "tranthik@gmail.com",
-      "customer_type": "VIP",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "address": "No.10 Street K, District 10, Ho Chi Minh City }"
+    },
+    {
+      "name": "123",
+      "dayOfBirth": "123",
+      "gender": "Male",
+      "idCard": "12",
+      "phoneNumber": "12312",
+      "email": "123@123",
+      "address": "213",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 11
+    }
+  ],
+  "contracts": [
+   
+    {
+      "id": 2,
+      "idBooking": "ABC124",
+      "dateStart": "2023-08-01",
+      "dateEnd": "2023-08-07",
+      "deposit": 500,
+      "total": 2000
+    },
+    {
+      "id": 3,
+      "idBooking": "ABC125",
+      "dateStart": "2023-08-01",
+      "dateEnd": "2023-08-07",
+      "deposit": 500,
+      "total": 2000
+    },
+    {
+      "id": 4,
+      "idBooking": "ABC126",
+      "dateStart": "2023-08-01",
+      "dateEnd": "2023-08-07",
+      "deposit": 500,
+      "total": 2000
+    },
+    {
+      "id": 5,
+      "idBooking": "ABC127",
+      "dateStart": "2023-08-01",
+      "dateEnd": "2023-08-07",
+      "deposit": 500,
+      "total": 2000
+    },
+    {
+      "id": 6,
+      "idBooking": "ABC128",
+      "dateStart": "2023-08-01",
+      "dateEnd": "2023-08-07",
+      "deposit": 500,
+      "total": 2000
+    }
+  ],
+  "typeCustomers": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
     }
   ]
 }

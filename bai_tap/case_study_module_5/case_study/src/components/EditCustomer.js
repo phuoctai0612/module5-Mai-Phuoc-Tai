@@ -1,93 +1,132 @@
-function Edit(){
-  
-    return (
-      <div>
-        <meta charSet="UTF-8" />
-        <title>Title</title>
-        <link rel="stylesheet" href="./css/create.css" />
-        <div className="container">
-          <form>
-            <div className="row">
-              <h4>Account</h4>
-              <div className="input-group input-group-icon">
-                <input type="text" placeholder="Full Name" />
-                <div className="input-icon"><i className="fa fa-user" /></div>
-              </div>
-              <div className="input-group input-group-icon">
-                <input type="email" placeholder="Email Adress" />
-                <div className="input-icon"><i className="fa fa-envelope" /></div>
-              </div>
-              <div className="input-group input-group-icon">
-                <input type="password" placeholder="Password" />
-                <div className="input-icon"><i className="fa fa-key" /></div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-half">
-                <h4>Date of Birth</h4>
-                <div className="input-group">
-                  <div className="col-third">
-                    <input type="text" placeholder="DD" />
-                  </div>
-                  <div className="col-third">
-                    <input type="text" placeholder="MM" />
-                  </div>
-                  <div className="col-third">
-                    <input type="text" placeholder="YYYY" />
-                  </div>
-                </div>
-              </div>
-              <div className="col-half">
-                <h4>Gender</h4>
-                <div className="input-group">
-                  <input id="gender-male" type="radio" name="gender" defaultValue="male" />
-                  <label htmlFor="gender-male">Male</label>
-                  <input id="gender-female" type="radio" name="gender" defaultValue="female" />
-                  <label htmlFor="gender-female">Female</label>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <h4>Payment Details</h4>
-              <div className="input-group">
-                <input id="payment-method-card" type="radio" name="payment-method" defaultValue="card" defaultChecked="true" />
-                <label htmlFor="payment-method-card"><span><i className="fa fa-cc-visa" />Credit Card</span></label>
-                <input id="payment-method-paypal" type="radio" name="payment-method" defaultValue="paypal" />
-                <label htmlFor="payment-method-paypal"> <span><i className="fa fa-cc-paypal" />Paypal</span></label>
-              </div>
-              <div className="input-group input-group-icon">
-                <input type="text" placeholder="Card Number" />
-                <div className="input-icon"><i className="fa fa-credit-card" /></div>
-              </div>
-              <div className="col-half">
-                <div className="input-group input-group-icon">
-                  <input type="text" placeholder="Card CVC" />
-                  <div className="input-icon"><i className="fa fa-user" /></div>
-                </div>
-              </div>
-              <div className="col-half">
-                <div className="input-group">
-                  <select>
-                    <option>01 Jan</option>
-                    <option>02 Jan</option>
-                  </select>
-                  <select>
-                    <option>2015</option>
-                    <option>2016</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <h4>Terms and Conditions</h4>
-              <div className="input-group">
-                <input id="terms" type="checkbox" />
-                <label htmlFor="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
+import { Formik, Field, ErrorMessage,Form } from "formik";
+import * as yup from "yup";
+import { getListTypeCustomer,getTypeCustomer } from "../service/typeCustomerService";
+import { editCustomer, getCustomer } from "../service/customerService";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+function EditCustomer() {
+  const param = useParams();
+  const [typeCustomers, setTypeCustomers] = useState([])
+  const [customers, setCustomers] = useState({})
+  const getToDo = () => {
+    (async () => {
+      setTypeCustomers(await getListTypeCustomer())
+    })()
   }
-export default Create;
+  const getToDo1 = () => {
+    (async () => {
+      setCustomers(await getCustomer(param))
+    })()
+  }
+
+  useEffect(()=>{
+    getToDo();
+    getToDo1()
+  
+  }, [])
+
+  console.log(customers);
+  return (
+    <div>
+    {customers.id &&
+    <div>
+      <meta charSet="UTF-8" />
+      <title>Create Customer</title>
+      <link rel="stylesheet" href="./css/create.css" />
+      <div className="container">
+        <Formik initialValues={{id:customers.id, name: customers.name, dayOfBirth: customers.dayOfBirth, gender: customers.gender
+        , idCard: customers.idCard, phoneNumber: customers.phoneNumber, email: customers.email, address: customers.address,
+         typeCustomers: customers.typeCustomer.id }}
+          validationSchema={yup.object({
+            name: yup.string().required(),
+            dayOfBirth: yup.string().required(),
+            gender: yup.string().required(),
+            idCard: yup.string().required(),
+            typeCustomers: yup.string().required(),
+            phoneNumber: yup.string().required(),
+            email: yup.string().required(),
+            address: yup.string().required()
+          })}
+          onSubmit={(values) => {
+            const getToDo = async () => {
+              const type = await getTypeCustomer(values.typeCustomers);
+              const obj = {
+                ...values, typeCustomers: type
+              }
+              console.log(obj);
+               editCustomer(obj)
+            }
+            getToDo()
+          }}
+        >
+          <div className="row">
+            <h4>Account</h4>
+            
+            <Form >
+
+              <div className="input-group input-group-icon">
+                <label htmlFor='name'>Name</label>
+                <Field type="text" placeholder="Full Name" name="name" id="name" />
+                <ErrorMessage component="div" name='name' className='text-red' />
+                <div ><i className="fa fa-user" /></div>
+              </div>
+              <div className="input-group input-group-icon">
+                <label htmlFor='dayOfBirth'>Date Of Birth</label>
+                <Field type="text" placeholder="Date Of Birth" name="dayOfBirth" id="dayOfBirth" />
+                <ErrorMessage component="div" name='dayOfBirth' className='text-red' />
+                <div ><i className="fa fa-user" /></div>
+              </div>
+              <div className="input-group input-group-icon">
+                <div>Giới tính :</div>
+                <ErrorMessage component="div" name='gender' className='text-red' />
+                <span style={{ float: 'left', marginLeft: '20px' }}> <Field type="radio" name="gender" value="Female" /> Female</span>
+                <span style={{ float: 'left', marginLeft: '20px' }}> <Field type="radio" name="gender" value="Male" />Male</span>
+              </div>
+              <div className="input-group input-group-icon">
+                <label htmlFor='idCard'>Id Card</label>
+                <Field type="text" placeholder="Id Card" name="idCard" id="idCard" />
+                <ErrorMessage component="div" name='idCard' className='text-red' />
+                <div ><i className="fa fa-user" /></div>
+              </div>
+              <div className="input-group input-group-icon">
+                <label htmlFor='phoneNumber'>Phone Number</label>
+                <Field type="text" placeholder="Phone Number" name="phoneNumber" id="phoneNumber" />
+                <ErrorMessage component="div" name='phoneNumber' className='text-red' />
+
+                <div ><i className="fa fa-envelope" /></div>
+              </div>
+              <div className="input-group input-group-icon">
+                <label htmlFor='email'>Email</label>
+                <Field type="email" placeholder="Email" name="email" id="email" />
+                <ErrorMessage component="div" name='email' className='text-red' />
+                <div ><i className="fa fa-key" /></div>
+              </div>
+              <div className="input-group input-group-icon">
+                <label htmlFor='typeCustomers'>Type Customer</label>
+                <div className="input-group input-group-icon">
+                  <Field as="select" id="typeCustomers" name="typeCustomers">
+                    <option value={""}>Type Customer</option>
+                    {typeCustomers.length > 0 &&
+                      typeCustomers.map((item, index) =>
+                        <option key={`tc_${index}`} value={item.id}>{item.name}</option>
+                      )}
+                  </Field>
+                </div>
+                <div ><i className="fa fa-key" /></div>
+              </div>
+              <div className="input-group input-group-icon">
+                <label htmlFor='address'>Address</label>
+                <Field type="text" placeholder="Address" name="address" id="address" />
+                <ErrorMessage component="div" name='address' className='text-red' />
+                <div ><i className="fa fa-key" /></div>
+              </div>
+              <button type="submit">Create</button>
+            </Form>
+
+          </div>
+        </Formik>
+      </div>
+    </div>
+ } </div>);
+}
+export default EditCustomer;

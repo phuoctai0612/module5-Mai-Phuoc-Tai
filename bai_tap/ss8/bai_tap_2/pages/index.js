@@ -1,17 +1,22 @@
 
+import { getListProps } from './service/covidService'
+import { useEffect,useState } from 'react'
 
-import axios from 'axios'
-export async function getStaticProps() {
-  const res = await axios.get("http://localhost:8080/covids")
-  return {
-    props: {
-      covids: res.data
-    }
-  }
-}
-export default function Home({covids}) {
+export default function Home() {
+  const [covids,setCovids]=useState([])
+  const getProps=()=>{
+    (async()=>{
+   setCovids(await getListProps()) 
+    })()
+  };
+useEffect(()=>{
+  getProps();
+},[])
+console.log(covids);
   return (
+
   <div>
+    {
     <table>
       <thead>
       <tr>
@@ -35,7 +40,7 @@ export default function Home({covids}) {
     )}
       </tbody>
     </table>
-   
+   }
   </div>
   )
 }

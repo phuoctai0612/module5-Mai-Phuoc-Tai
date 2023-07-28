@@ -16,7 +16,7 @@ function CreateCustomer() {
       <meta charSet="UTF-8" />
       <title>Create Customer</title>
       <link rel="stylesheet" href="./css/create.css" />
-      <div className="container1">
+      <div className="container">
         <Formik initialValues={{ name: "", dayOfBirth: "", gender: "", idCard: "", phoneNumber: "", email: "", address: "", typeCustomers: "" }}
           validationSchema={yup.object({
             name: yup.string().required(),

@@ -20,7 +20,7 @@ function App() {
           <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
           {/* Theme Style */}
-          <link rel="stylesheet" href="css/style.css" />
+         
           <link rel="stylesheet" href="css/header.css" />
          
           {/* END nav */}

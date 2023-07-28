@@ -1,22 +1,15 @@
-
-
-
-import { Link } from "react-router-dom";
-import { getListCustomer } from "../service/customerService";
+import { getListContract } from "../service/contractService"
 import {useState,useEffect} from "react"
-   function CustomerManagement() {
-     const [customers,setCustomer]=useState([])
+   function ConTractManagement() {
+     const [contracts,setContracts]=useState([])
      const getToDo =()=>{
       (async()=>{
-            setCustomer(await getListCustomer())
+        setContracts(await getListContract())
      })()
      }
-     useEffect(()=>getToDo(),[])
-
+     useEffect(getToDo,[])
+console.log(contracts);
       return (
-        <div>
-
-       {customers &&
         <div>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,8 +28,8 @@ import {useState,useEffect} from "react"
                       <h2>Manage <b>Employees</b></h2>
                     </div>
                     <div className="col-sm-6">
-           <Link to={`/customer-create`}><a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons"></i> 
-           <span>Add New Employee</span></a></Link>
+                      <a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons"></i> <span>Add New Employee</span></a>
+                      <a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal"><i className="material-icons"></i> <span>Delete</span></a>
                     </div>
                   </div>
                 </div>
@@ -49,38 +42,34 @@ import {useState,useEffect} from "react"
                           <label htmlFor="selectAll" />
                         </span>
                       </th>
-                      <th>Name</th>
-                      <th>Day Of Birth</th>
-                      <th>Sex</th>
-                      <th>Card Id</th>
-                      <th>Phone</th>
-                      <th>Email</th>
-                      <th>Type Customer</th>
-                      <th>Address</th>
+                      <th>Id Booking</th>
+                      <th>Date Start</th>
+                      <th>Date End</th>
+                      <th>Deposit</th>
+                      <th>Totatl</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {customers.map((item,index)=>{
-                      return(
-                    <tr key={`ctm_`+index}> 
-                     {console.log(item)}
-                      {console.log(item.typeCustomer)}
-                      <td>{item.name}</td>
-                      <td>{item.dayOfBirth}</td>
-                      <td>{item.gender}</td>
-                      <td>{item.idCard}</td>
-                      <td>{item.phoneNumber}</td>
-                      <td>{item.email}</td>
-                      {item.typeCustomer!=undefined ? <td>{item.typeCustomer.name}</td>:""}
-                    
-                      <td>{item.address}</td>
-                    
+                    {contracts.map((item,index)=>
+                   
+                    <tr key={index}>
+                      <td>
+                        <span className="custom-checkbox">
+                          <input type="checkbox"  name="options[]" defaultValue={1} />
+                          <label htmlFor="checkbox1" />
+                        </span>
+                      </td>
+                      <td>{item.idBooking}</td>
+                      <td>{item.dateStart}</td>
+                      <td>{item.dateEnd}</td>
+                      <td>{item.deposit}</td>
+                      <td>{item.total}</td>
                       <td>
                         <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
                         <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
-                     </td>
+                      </td>
                     </tr>
-                 )  }  )} 
+                    )} 
                    
                   </tbody>
                 </table>
@@ -191,7 +180,6 @@ import {useState,useEffect} from "react"
             </div>
           </div>
         </div>
-       } </div>
       );
     }
-    export default CustomerManagement;
+    export default  ConTractManagement;
